@@ -10,7 +10,7 @@ const authenticate = (req, res, next) => {
       res.status(401).send("ban chua dang nhap");
     }
   } catch (error) {
-    res.status(500).send(error);
+    res.status(401).send("error: ban chua dang nhap");
   }
 };
 

@@ -11,7 +11,7 @@ app.use(express.json());
 
 // cai dat static file
 const publicPathDirectory = path.join(__dirname, "./public");
-app.use(express.static(publicPathDirectory));
+app.use("/public", express.static(publicPathDirectory));
 
 // router
 app.get('/', (req, res) => res.send('Hello World!'));

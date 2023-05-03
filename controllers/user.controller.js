@@ -42,8 +42,21 @@ const login = async (req, res) => {
   }
 };
 
-const uploadAvatar = (req, res) => {
-  res.send("upload file run");
+const uploadAvatar = async (req, res) => {
+  const { user, file } = req;
+  const urlImage = `http://localhost:3000/${ file.path }`;
+  const userFound = await User.findOne({
+    where: {
+      email: user.email
+    }
+  });
+  if (userFound) {
+    userFound.avatar = urlImage;
+    await userFound.save();
+    res.status(200).send("upload file run");
+  } else {
+    res.status(404).send("khon tont tai user");
+  }
 }
 
 module.exports = {
