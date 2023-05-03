@@ -9,7 +9,7 @@ const { rootRouter } = require('./routers');
 // cai dat ung dung kieu json
 app.use(express.json());
 
-// cai dat static file
+// cai dat static upload file
 const publicPathDirectory = path.join(__dirname, "./public");
 app.use("/public", express.static(publicPathDirectory));
 

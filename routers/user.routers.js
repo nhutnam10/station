@@ -10,7 +10,7 @@ const userRouter = express.Router();
 userRouter.post("/register", register);
 userRouter.post("/login", login);
 
-userRouter.post("/upload-avatar", authenticate, uploadImage(), uploadAvatar);
+userRouter.post("/upload-avatar", authenticate, uploadImage('avatars'), uploadAvatar);
 
 
 module.exports = {
